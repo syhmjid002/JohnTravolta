@@ -5,6 +5,10 @@
  */
 package johntravolta;
 
+import java.util.Scanner;
+
+
+
 /**
  *
  * @author majid
@@ -18,28 +22,75 @@ public class JohnTravolta {
         // Nama : Muhammad Syahrul Majid
         // NIM : 11190910000030
         
-        int JamLembur = 52;
-        double GajiPerjam = 15000;
-        double GajiLemburPerjam = 1.5 * GajiPerjam;
-        double TotalGajiLemburSeminggu = GajiLemburPerjam * JamLembur;
         
-        int pengeluaran = 10000000;
+        // SEKARANG TESTING
         
-        double tabungan = TotalGajiLemburSeminggu - pengeluaran;
+        int jamNormal = 40;
+        int gajiNormal = 15000;
+        double gajiLemburPerjam = 1.5 * gajiNormal;
+        int gajiSeminggu = gajiNormal * jamNormal;
+        int jamKerja;
         
-        System.out.println("Total gaji lembur Mr John selama seminggu = " + TotalGajiLemburSeminggu);
+        Scanner in = new Scanner(System.in);
         
-        System.out.println("Apakah Mr John bisa menabung atau tidak??");
-        System.out.println("==========================================");
+        System.out.println("Input Jam Kerja : ");
+        jamKerja = in.nextInt();
         
-        if(TotalGajiLemburSeminggu > pengeluaran){
-            System.out.println("Bisa Menabung");
-            System.out.println("Besar tabungannya untuk minggu ini adalah " + tabungan);
-        } else if(TotalGajiLemburSeminggu == pengeluaran){
-            System.out.println("Tidak Bisa Menabung");
-        } else{
-            System.out.println("Cari Tambahan");
+        int jamLembur = jamKerja - jamNormal;
+        double gajiLembur = jamLembur * gajiLemburPerjam;
+        
+        double pemasukan = gajiSeminggu + gajiLembur;
+        
+        if(jamKerja < 40){
+            int gaji = jamKerja * gajiNormal;
+            System.out.println("Gaji Mr John selama seminggu sebesar Rp" + gaji);
+            int pengeluaran;
+
+            System.out.println("Input Pengeluaran : ");
+            pengeluaran = in.nextInt();
+
+            System.out.println("Apakah Mr John bisa menabung atau tidak??");
+
+            double tabungan = gaji - pengeluaran;
+
+            if (gaji > pengeluaran) {
+                System.out.println("Bisa Menabung");
+                System.out.println("Tabungan Mr John selama seminggu sebesar Rp" + tabungan);
+            } else if (gaji == pengeluaran) {
+                System.out.println("Tidak Bisa Menabung");
+            } else {
+                System.out.println("Cari Tambahan");
+            }
+        } else {
+            System.out.println("Gaji Mr John selama seminggu sebesar Rp" + pemasukan);
+            int pengeluaran;
+
+            System.out.println("Input Pengeluaran : ");
+            pengeluaran = in.nextInt();
+
+            System.out.println("Apakah Mr John bisa menabung atau tidak??");
+
+            double tabungan = pemasukan - pengeluaran;
+
+            if (pemasukan > pengeluaran) {
+                System.out.println("Bisa Menabung");
+                System.out.println("Tabungan Mr John selama seminggu sebesar Rp" + tabungan);
+            } else if (pemasukan == pengeluaran) {
+                System.out.println("Tidak Bisa Menabung");
+            } else {
+                System.out.println("Cari Tambahan");
+            }
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
     }
     
 }
